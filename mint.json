@@ -9,7 +9,10 @@
     "primary": "#0170F8",
     "light": "#17A9F9",
     "dark": "#1257BB",
-    "anchors": { "from": "#17A9F9", "to": "#443AFA" }
+    "anchors": { "from": "#17A9F9", "to": "#443AFA" },
+    "background": {
+      "dark": "#020417"
+    }
   },
   "topbarCtaButton": {
     "name": "Get Started",

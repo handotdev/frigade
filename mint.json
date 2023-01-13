@@ -1,0 +1,69 @@
+{
+  "name": "Frigade",
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#0170F8",
+    "light": "#17A9F9",
+    "dark": "#1257BB",
+    "anchors": { "from": "#17A9F9", "to": "#443AFA" }
+  },
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://app.frigade.com"
+  },
+  "topbarLinks": [
+    {
+      "name": "Log In",
+      "url": "https://app.frigade.com/sign-in"
+    }
+  ],
+  "anchors": [
+    {
+      "name": "GitHub",
+      "icon": "github",
+      "url": "https://github.com/frigadehq"
+    },
+    {
+      "name": "Changelog",
+      "icon": "list-timeline",
+      "url": "https://frigade.com/changelog"
+    },
+    {
+      "name": "Contact Us",
+      "icon": "envelope",
+      "url": "mailto:hello@frigade.com"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Welcome",
+      "pages": ["frigade-docs"]
+    },
+    {
+      "group": "Mobile SDK",
+      "pages": [
+        "introduction",
+        {
+          "group": "Component Customization",
+          "pages": [
+            "components/high-level-props",
+            "components/using-your-own-components"
+          ]
+        },
+        {
+          "group": "Custom Pages",
+          "pages": ["custom-pages/creating-custom-page-types"]
+        }
+      ]
+    }
+  ],
+  "footerSocials": {
+    "twitter": "https://twitter.com/FrigadeApp",
+    "github": "https://github.com/FrigadeHQ",
+    "website": "https://frigade.com/"
+  }
+}

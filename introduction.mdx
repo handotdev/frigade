@@ -1,0 +1,77 @@
+---
+title: "Introduction"
+description: The Frigade react-native-onboard library provides delightful and fully customizable onboarding components for React Native.
+---
+
+## Features
+
+- 📱 Easily add welcome screens, product tours, and feature announcements to
+  your app
+- 🎨 Fully customizable components and config
+- 🔧 Dynamically trigger the right onboarding for the right user
+- 🚀 Works with Expo
+- ✨ Beautiful default UI
+
+Delightful and fully customizable onboarding components for React Native.
+
+| ![demo](/images/react-native-onboard-demo-simple-af8201b5ebb9f6c8b3aad474c3d3f65f.gif) | ![demo](/images/react-native-onboard-demo-bt-5ca21709be65ac17d2d9c0a9e1f6e4f7.gif) |
+| -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+
+See
+[Live Demo](https://snack.expo.dev/@christian-frigade/react-native-onboard-simple-demo)
+on Expo Snack.
+
+## Features
+
+- 📱 Easily add welcome screens, product tours, and feature highlights
+- 🎨 Fully customizable components and config
+- 🔧 Lightweight and zero dependencies
+- 🚀 Works with Expo
+- ✨ Beautiful default UI
+
+## Installation
+
+Install the package with either npm or yarn:
+
+```bash
+npm install react-native-onboard
+```
+
+or
+
+```bash
+yarn add react-native-onboard
+```
+
+## Quick start
+
+Place the `OnboardFlow` component anywhere in your app. It will automatically
+take up the entire screen. To change the default behavior, see the
+[docs on supported props](/components/high-level-props).
+
+See
+[Live Demo](https://snack.expo.dev/@christian-frigade/react-native-onboard-simple-demo)
+on Expo Snack.
+
+```js
+import { OnboardFlow } from "react-native-onboard";
+
+const App = () => {
+  return (
+    <OnboardFlow
+      pages={[
+        {
+          title: "Welcome to my app",
+          subtitle: "This is page 1",
+          imageUri: "https://frigade.com/img/example1.png",
+        },
+        {
+          title: "Page 2 header",
+          subtitle: "This is page 2",
+          imageUri: "https://frigade.com/img/example2.png",
+        },
+      ]}
+    />
+  );
+};
+```

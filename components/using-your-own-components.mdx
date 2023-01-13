@@ -1,0 +1,96 @@
+---
+title: "Using your own components"
+---
+
+`react-native-onboard` is designed to be headless and customizable. You can use
+the default UI or create your own by implementing a series of provided
+interfaces.
+
+## Custom components
+
+The following components can be customized by passing in your own component as a
+prop:
+
+- Default page
+- Navigation footer
+- Pagination progress bar
+- Primary button
+- Secondary button
+
+If you wish to further customize your onboarding, see the section on
+[creating custom page types](/custom-pages/creating-custom-page-types).
+
+For example, to implement your own Primary button component, you can do the
+following:
+
+```js
+import { OnboardFlow, PrimaryButtonProps } from "react-native-onboard";
+
+const MyPrimaryButton = ({ text, goToNextPage }) => {
+  return (
+    <TouchableOpacity onPress={goToNextPage}>
+      <Text>{text}</Text>
+    </TouchableOpacity>
+  );
+};
+
+const App = () => {
+  return <OnboardFlow pages={pages} PrimaryButtonComponent={MyPrimaryButton} />;
+};
+```
+
+To fully replace the footer component, you can do the following:
+
+```js
+import { OnboardFlow, FooterProps } from "react-native-onboard";
+
+const MyFooter = ({
+  goToNextPage,
+  goToPreviousPage,
+  currentPage,
+  totalPages,
+}) => {
+  return (
+    <View>
+      <TouchableOpacity onPress={goToPreviousPage}>
+        <Text>Previous</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={goToNextPage}>
+        <Text>{currentPage == totalPages - 1 ? "Finish" : "Next"}</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const App = () => {
+  return <OnboardFlow pages={pages} FooterComponent={MyFooter} />;
+};
+```
+
+The individual props passed in to the component are described below:
+
+## Primary button and Secondary button component props
+
+| prop         | description                        | type       |
+| ------------ | ---------------------------------- | ---------- |
+| currentPage  | The current page index             | number     |
+| text         | Text of the button                 | string     |
+| goToNextPage | Advances the flow to the next page | () => void |
+| totalPages   | Total number of pages in the flow  | number     |
+
+## Pagination component props
+
+| prop        | description                       | type   |
+| ----------- | --------------------------------- | ------ |
+| currentPage | The current page index            | number |
+| totalPages  | Total number of pages in the flow | number |
+
+## Footer component props
+
+| prop             | description                                          | type         |
+| ---------------- | ---------------------------------------------------- | ------------ |
+| currentPage      | The current page index                               | number       |
+| goToNextPage     | Advances the flow to the next page                   | () => void   |
+| goToPreviousPage | Goes back to the previous page                       | () => void   |
+| totalPages       | Total number of pages in the flow                    | number       |
+| pages            | Array of objects containing the individual page data | PageData\[\] |

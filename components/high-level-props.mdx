@@ -1,0 +1,44 @@
+---
+title: "High-level props"
+---
+
+The core component of the SDK is the `<OnboardFlow />` component. It supports
+the following options.
+
+| option                   | description                                                                                               | type                                | default value |
+| ------------------------ | --------------------------------------------------------------------------------------------------------- | ----------------------------------- | ------------- |
+| backgroundImageUri       | Uri of a static background image                                                                          | string                              |               |
+| dismissButtonStyle       | Style of the dismiss button placed in upper right corner. Only used in conjunction with showDismissButton | ViewStyle                           |               |
+| onBack                   | Called when the user goes back one page                                                                   | () => void                          |               |
+| onNext                   | Called when the user goes forward one page                                                                | () => void                          |               |
+| pageStyle                | Global style of the individual pages in the flow                                                          | ViewStyle                           |               |
+| pageTypes                | Map of page type name to page type. Used only when using custom page types                                | OnboardPageTypesConfig              |               |
+| pages                    | Array of objects containing the individual page data                                                      | PageData\[\]                        |               |
+| paginationColor          | Color of the pagination progress bars                                                                     | string                              |               |
+| paginationSelectedColor  | Color of the selected pagination bar                                                                      | string                              |               |
+| showDismissButton        | When true, a dismiss button will be shown. Only applicable when running the flow in a modal               | boolean                             |               |
+| style                    | Style of wrapping components that holds the onboarding flow                                               | ViewStyle                           |               |
+| subtitleStyle            | Style of the secondary header                                                                             | ViewStyle                           |               |
+| textStyle                | Style to use for all text including buttons and headers. Useful for changing global font.                 | ViewStyle                           |               |
+| textAlign                | Alignment of the text on the individual pages                                                             | left, center, or right              |               |
+| type                     | How to display the given flow                                                                             | fullscreen, bottom-sheet, or inline |               |
+| titleStyle               | Style of the primary header                                                                               | ViewStyle                           |               |
+| FooterComponent          | Optional custom footer component                                                                          | FC\<FooterProps\>                   |               |
+| PaginationComponent      | Optional custom pagination component. Built-in ones include DotPagination, DashPagination, and DashDot    | FC\<PaginationProps\>               | DotPagination |
+| PrimaryButtonComponent   | Optional primary button component                                                                         | FC\<PrimaryButtonProps\>            |               |
+| SecondaryButtonComponent | Optional secondary button component                                                                       | FC\<SecondaryButtonProps\>          |               |
+
+## Page data
+
+The `pages` option is an array of objects containing the individual page data.
+The following options are available:
+
+| option             | description                                                                                      | type      | default value |
+| ------------------ | ------------------------------------------------------------------------------------------------ | --------- | ------------- |
+| title              | Primary header text                                                                              | string    |               |
+| subtitle           | Secondary header text                                                                            | string    |               |
+| imageUri           | Uri of a static image to be displayed on the page                                                | string    |               |
+| imageComponent     | Custom component to be displayed on the page                                                     | ReactNode |               |
+| primaryButtonTitle | Text of of the primary button. Useful when wanting custom copy on e.g. the last page of the flow | string    |               |
+| type               | Type of page to use when rendering. This should match a key in the PageTypes map.                | PageType  |               |
+| props              | Any custom properties and data you wish to pass to the given page.                               | any       |               |

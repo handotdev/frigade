@@ -1,0 +1,63 @@
+---
+title: "Creating custom page types"
+---
+
+The SDK comes with a series of useful page types, but also supports custom page
+types. This allows you to create your own page types and use them in your
+onboarding flow. To create a custom page type, you must pass in a map of page
+types to page components. The key of the map is the page type name (to be
+referenced in the `PageData` entry), and the value is the component to be
+rendered.
+
+For example, to create a custom page type called `myCustomPage`, you can do the
+following:
+
+```js
+import { OnboardFlow, PageTypes } from "react-native-onboard";
+
+const MyCustomPage = ({
+  title,
+  subtitle,
+  imageUri,
+  goToNextPage,
+  goToPreviousPage,
+  currentPage,
+  totalPages,
+  pageData,
+  props,
+}) => {
+  return (
+    <View>
+      <Text>{title}</Text>
+      <Text>{subtitle}</Text>
+      <Text>{props.myCustomProp}</Text>
+      <Image source={{ uri: imageUri }} />
+      <TouchableOpacity onPress={goToNextPage}>
+        <Text>Continue</Text>
+      </TouchableOpacity>
+    </View>
+  );
+};
+
+const App = () => {
+  return (
+    <OnboardFlow
+      pageTypes={{
+        myCustomPage: MyCustomPage,
+      }}
+      pages={[
+        {
+          title: "My custom page",
+          subtitle: "This is a custom page",
+          imageUri: "https://example.com/image.png",
+          type: "myCustomPage",
+          props: {
+            // Any additional props you want to pass to the page component
+            myCustomProp: "Hello world",
+          },
+        },
+      ]}
+    />
+  );
+};
+```
